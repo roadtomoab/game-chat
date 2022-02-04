@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
-function Signup () {
+function Signup ({ setCurrentUser }) {
 
     const [ formData, setFormData ] = useState(
         {
@@ -15,26 +16,63 @@ function Signup () {
             [e.target.name]: e.target.value,
         })
     }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const userCreds = { ...formData };
+
+        fetch("/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userCreds),
+        })
+            .then((r) => r.json())
+            .then((user) => {
+                setCurrentUser(user)
+                setFormData({
+                    username: "",
+                    password: ""
+                })
+            })
+    }
+
+
     
     return (
-        <div>
-            <h1>Welcome to Tetris Chat. Create an account to get started.</h1>
-            <form>
+        <div className='signup'>
+            <form onSubmit={handleSubmit} spellCheck='false'>
+                <header>SIGN UP</header>
                 <input
-                type="text"
-                placeholder="username"
-                name="username"
+                type='text'
+                placeholder='username'
+                name='username'
                 value={formData.username}
                 onChange={handleChange}
-                ></input>
-
+                />
+                <br></br>
+                <br></br>
                 <input
-                type="text"
-                placeholder="password"
-                name="password"
+                type='password'
+                placeholder='password'
+                autoComplete='on'
+                name='password'
                 value={formData.password}
                 onChange={handleChange}
-                ></input>
+                />
+                <br></br>
+                <br></br>
+                <NavLink to='/home'>
+                    <button type='submit'>
+                        <span className='waiting'>. . .</span>
+                        <span className='create-account'>CREATE AN ACCOUNT</span>
+                    </button>
+                </NavLink>
+                <br></br>
+                <br></br>
+                <NavLink to='/login'>Already have account? Log in here</NavLink>
             </form>
         </div>
     )

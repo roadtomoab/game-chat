@@ -1,38 +1,128 @@
 .App {
   text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: black;
+  z-index: 10;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-wrapper {
+  background-color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  font-size: 52px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15%;
+  width: 8em;
+  color: whitesmoke;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.signup {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.signup form {
+  padding: 5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.signup input {
+  height: 60px;
+  width: 280px;
+  background-color: black;
+  transition: 0.3s;
+  border: none;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  color: black;
+}
+
+.signup input:hover {
+  background-color: whitesmoke;
+}
+
+.signup button {
+  border: none;
+  text-decoration: none;
+  background-color: black;
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 100;
+  transition: 0.3s;
+  /* transition not working, fix  */
+}
+
+.create-account {
+  display: none;
+}
+
+.signup button:hover .waiting {
+  display: none;
+}
+
+.signup button:hover .create-account {
+  display: inline;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+
+.signup header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  color: whitesmoke;
+  font-weight: 100;
+  padding-bottom: 1rem;
+}
+
+.signup a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: whitesmoke;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+::placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: whitesmoke;
+  font-weight: 200;
+  text-align: center;
+  font-size: 14px;
+}
+
+.home button {
+  background-color: black;
+  border: none;
+  color: black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 52px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  transition: 0.3s;
+}
+
+.home button:hover {
+  background-color: whitesmoke;
+  color: black;
 }
