@@ -7,12 +7,14 @@ import ArrivalPage from './components/ArrivalPage';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
+import Note from './components/Note';
 
 function App() {
 
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ notes, setNotes ] = useState([])
-  const [ bookmarks, setBookmarks ] = useState()
+  const [ bookmarks, setBookmarks ] = useState([])
+  const [ note, setNote ] = useState("")
 
   // fetch all notes from API
   function fetchNotes () {
@@ -28,6 +30,11 @@ function App() {
     .then(r => r.json())
     .then(data => setBookmarks(data))
   };
+
+  function openEditor (clickedNote) {
+    console.log(clickedNote)
+    setNote(clickedNote)
+  }
 
   useEffect(fetchBookmarks, []);
 
@@ -157,8 +164,18 @@ function App() {
           addNote={addNote}
           addToBookmarks={addToBookmarks}
           setCurrentUser={setCurrentUser}
+          openEditor={openEditor}
           />
         </Route>
+
+        <Route path={`/note/${note.id}`}>
+          <Note
+            note={note}
+            updateText={updateText}
+            addToBookmarks={addToBookmarks}
+          />
+        </Route>
+
 
       </Switch>
     </div>

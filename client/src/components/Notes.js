@@ -1,18 +1,19 @@
-import Note from "./Note"
+import NotePreview from "./NotePreview"
 import AddNote from './AddNote';
 
 
-function Notes ({ notes, updateText, addNote, addToBookmarks }) {
+function Notes ({ notes, updateText, addNote, addToBookmarks, openEditor }) {
     return (
         <div>
             <AddNote addNote={addNote}/>
             {notes.map((note) => {
                 return (
-                    <Note
+                    <NotePreview
                     key={note.id}
                     note={note}
                     updateText={updateText}
                     addToBookmarks={addToBookmarks}
+                    openEditor={openEditor}
                     />
                 )
             })}

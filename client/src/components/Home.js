@@ -1,7 +1,7 @@
 import Notes from './Notes'
 import NavBar from './NavBar';
 
-function Home ({ notes, updateText, addNote, addToBookmarks, setCurrentUser }) {
+function Home ({ notes, updateText, addNote, addToBookmarks, setCurrentUser, openEditor }) {
 
     return (
         <div>
@@ -13,6 +13,7 @@ function Home ({ notes, updateText, addNote, addToBookmarks, setCurrentUser }) {
             updateText={updateText}
             addNote={addNote}
             addToBookmarks={addToBookmarks}
+            openEditor={openEditor}
             />
         </div>
     )

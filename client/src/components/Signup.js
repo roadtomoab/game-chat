@@ -73,12 +73,10 @@ function Signup ({ setCurrentUser, currentUser }) {
                 />
                 <br></br>
                 <br></br>
-                <NavLink to='/home'>
-                    <button type='submit'>
-                        <span className='waiting'>. . .</span>
-                        <span className='create-account'>CREATE AN ACCOUNT</span>
-                    </button>
-                </NavLink>
+                <button type='submit'>
+                    <span className='waiting'>. . .</span>
+                    <span className='create-account'>CREATE AN ACCOUNT</span>
+                </button>
                 <br></br>
                 <br></br>
                 <NavLink to='/login'>Already have account? Log in here</NavLink>

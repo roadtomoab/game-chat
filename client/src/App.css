@@ -160,3 +160,28 @@
   color: black;
 }
 
+.note-preview {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  font-size: 26px;
+  text-align: center;
+  /* padding-left: 5rem; */
+  margin: 0px;
+  color: whitesmoke;
+  cursor: pointer;
+  /* max-width: 50%; */
+  transition: 0.3s;
+  margin-left: auto;
+  margin-right: auto;
+  width: 14em;
+}
+
+.note-preview:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+#quill {
+  color: white;
+}
+
