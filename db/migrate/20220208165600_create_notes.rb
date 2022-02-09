@@ -1,7 +1,7 @@
-class CreateScores < ActiveRecord::Migration[7.0]
+class CreateNotes < ActiveRecord::Migration[7.0]
   def change
-    create_table :scores do |t|
-      t.integer :score
+    create_table :notes do |t|
+      t.text :text
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

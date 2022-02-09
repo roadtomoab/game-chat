@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
-function Signup ({ setCurrentUser }) {
+function Signup ({ setCurrentUser, currentUser }) {
 
     const [ formData, setFormData ] = useState(
         {
@@ -38,6 +38,12 @@ function Signup ({ setCurrentUser }) {
                 })
             })
     }
+
+    // {currentUser ?
+    //     <Redirect to="/home" />
+    // :
+
+    // }
 
 
     

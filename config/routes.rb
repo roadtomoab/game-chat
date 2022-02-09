@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :scores
-  resources :users
+  resources :bookmarks
+  resources :notes
+
+  resources :users do
+    resources :bookmarks, only: [:index, :create]
+  end
   
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

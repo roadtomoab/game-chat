@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import { useState } from 'react'
 
-function Login ({ setCurrentUser }) {
+function Login ({ setCurrentUser, currentUser }) {
 
     const [ formData, setFormData ] = useState(
         {
@@ -38,41 +38,41 @@ function Login ({ setCurrentUser }) {
               password: "",
             });
           });
+
+
     }
 
     return (
     <div className='signup'>
-        <form onSubmit={handleSubmit} spellCheck="false">
-            <header>LOG IN</header>
-            <input
-            type='text'
-            placeholder='username'
-            name='username'
-            value={formData.username}
-            onChange={handleChange}
-            />
-            <br></br>
-            <br></br>
-            <input
-            type='password'
-            placeholder='password'
-            autoComplete='on'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-            />
-            <br></br>
-            <br></br>
-            <NavLink to='/home'>
-                <button type='submit'>
-                    <span className='waiting'>. . .</span>
-                    <span className='create-account'>SIGN IN</span>
-                </button>
-            </NavLink>
-            <br></br>
-            <br></br>
-            <NavLink to='/signup'>Don't have account? Sign up here</NavLink>
-        </form>
+    <form onSubmit={handleSubmit} spellCheck="false">
+        <header>LOG IN</header>
+        <input
+        type='text'
+        placeholder='username'
+        name='username'
+        value={formData.username}
+        onChange={handleChange}
+        />
+        <br></br>
+        <br></br>
+        <input
+        type='password'
+        placeholder='password'
+        autoComplete='on'
+        name='password'
+        value={formData.password}
+        onChange={handleChange}
+        />
+        <br></br>
+        <br></br>
+        <button type='submit'>
+            <span className='waiting'>. . .</span>
+            <span className='create-account'>SIGN IN</span>
+        </button>
+        <br></br>
+        <br></br>
+        <NavLink to='/signup'>Don't have account? Sign up here</NavLink>
+    </form>
     </div>
     )
 }
