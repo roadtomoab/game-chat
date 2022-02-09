@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 function Signup ({ setCurrentUser, currentUser }) {
 
@@ -16,6 +16,8 @@ function Signup ({ setCurrentUser, currentUser }) {
             [e.target.name]: e.target.value,
         })
     }
+
+    let history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -37,6 +39,7 @@ function Signup ({ setCurrentUser, currentUser }) {
                     password: ""
                 })
             })
+        history.push("/home")
     }
 
     // {currentUser ?

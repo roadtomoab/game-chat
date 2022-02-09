@@ -1,4 +1,4 @@
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 
 function Login ({ setCurrentUser, currentUser }) {
@@ -16,6 +16,8 @@ function Login ({ setCurrentUser, currentUser }) {
             [e.target.name]: e.target.value,
         })
     }
+
+    let history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -38,8 +40,7 @@ function Login ({ setCurrentUser, currentUser }) {
               password: "",
             });
           });
-
-
+        history.push("/home")
     }
 
     return (

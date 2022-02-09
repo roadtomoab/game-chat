@@ -4,7 +4,7 @@ function ArrivalPage () {
     return (
         <div className="home-wrapper">
             <div className="home">
-                <header>WELCOME TO GAME CHAT</header>
+                <header>WELCOME TO COS</header>
                 <NavLink to="/signup">
                     <button className="button">ENTER</button>
                 </NavLink>

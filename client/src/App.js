@@ -156,6 +156,7 @@ function App() {
           updateText={updateText}
           addNote={addNote}
           addToBookmarks={addToBookmarks}
+          setCurrentUser={setCurrentUser}
           />
         </Route>
 
