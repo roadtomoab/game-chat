@@ -129,7 +129,8 @@
 }
 
 .note {
-  color: white;
+  color: black;
+  background-color: white;
 }
 
 .navbar {
@@ -183,5 +184,20 @@
 
 #quill {
   color: white;
+}
+
+.Search {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.SearchInput {
+  text-align: center;
+  width: 50%;
+  border: 3px solid #1C76D2;
+  border-left: none;
+  padding: 5px;
+  border-radius: 0 5px 5px 0;
+  outline: none;
 }
 

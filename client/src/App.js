@@ -16,6 +16,8 @@ function App() {
   const [ bookmarks, setBookmarks ] = useState([])
   const [ note, setNote ] = useState("")
 
+  const noteForShow = true;
+
   // fetch all notes from API
   function fetchNotes () {
     fetch("/notes")
@@ -78,6 +80,11 @@ function App() {
         });
       }
     });
+
+      fetch("/get_saved_note")
+      .then(r => r.json())
+      .then(data => setNote(data))
+
   }, []);
 
   function updateText (clickedNote) {
@@ -170,6 +177,7 @@ function App() {
 
         <Route path={`/note/${note.id}`}>
           <Note
+            noteForShow={noteForShow}
             note={note}
             updateText={updateText}
             addToBookmarks={addToBookmarks}
