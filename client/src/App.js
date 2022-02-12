@@ -87,16 +87,24 @@ function App() {
 
   }, []);
 
-  function updateText (clickedNote) {
-    console.log("clicked note: ", clickedNote)
+  function deleteNote(clickedNote) {
+    const updatedNotesArray = notes.filter((object) => object.id !== clickedNote.id)
+    setNotes(updatedNotesArray)
 
+    fetch(`/notes/${clickedNote.id}`, { method: "DELETE"} )
+
+  }
+
+  function updateTopic(clickedNote) {
+    console.log("clicked note: ", clickedNote)
+    
     const noteObj = { 
 
       text: clickedNote.text,
       topic: clickedNote.topic,
       user_id: currentUser.id
     
-  }
+    }
 
     fetch(`/notes/${clickedNote.id}`, {
       method: "PATCH",
@@ -107,6 +115,30 @@ function App() {
     })
       .then(r => r.json())
       .then(data => console.log(data))
+
+  }
+
+  function updateText (clickedNote) {
+    console.log("clicked note: ", clickedNote)
+
+    const noteObj = { 
+
+      text: clickedNote.text,
+      topic: clickedNote.topic,
+      user_id: currentUser.id
+    
+    }
+
+    fetch(`/notes/${clickedNote.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(noteObj)
+    })
+      .then(r => r.json())
+      .then(data => console.log(data))
+
   }
 
   function addNote (clickedNote) {
@@ -180,7 +212,9 @@ function App() {
             noteForShow={noteForShow}
             note={note}
             updateText={updateText}
+            updateTopic={updateTopic}
             addToBookmarks={addToBookmarks}
+            deleteNote={deleteNote}
           />
         </Route>
 

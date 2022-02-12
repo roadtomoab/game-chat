@@ -17,13 +17,19 @@ function AddNote ({ addNote }) {
     }
 
     function handleSubmit (e) {
+        if (note.topic == "") {
+            e.preventDefault();
+            console.log("note can't be blank")
+        }
+        else {
         e.preventDefault();
         addNote(note);
+        }
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='new-form'>
                 <input
                 placeholder='Type to set topic'
                 value={note.topic}

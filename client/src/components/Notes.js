@@ -1,7 +1,6 @@
 import NotePreview from "./NotePreview"
 import AddNote from './AddNote';
 import { useState } from 'react';
-import SearchBar from "./SearchBar";
 
 
 function Notes ({ notes, updateText, addNote, addToBookmarks, openEditor }) {
@@ -28,7 +27,7 @@ function Notes ({ notes, updateText, addNote, addToBookmarks, openEditor }) {
                 if (searchTerm == "") {
                     return note;
                 }
-                else if (note.topic.toLowerCase().includes(searchTerm.toLowerCase())) {
+                else if (note.topic.toLowerCase().includes(searchTerm.toLowerCase()) || note.text.toLowerCase().includes(searchTerm.toLowerCase())) {
                     return note;
                 }
             }).map((note) => {
